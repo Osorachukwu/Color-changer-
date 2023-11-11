@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .oso {
+            height: 100px;
+            width: 200px;
+           
+        }
+        .ra {
+            background-color: blueviolet;
+        }
+        .nye {
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <div class="oso"></div>
+    <button>Click</button>
+
+    <script>
+        let btn = document.querySelector('button');
+        let div = document.querySelector('div');
+
+        div.addEventListener('click', ()=> {
+            div.classList.toggle('ra')
+        })
+    </script>
+</body>
+</html>

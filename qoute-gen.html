@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            background-color: gray;
+        }
+        
+        section {
+            width: 600px;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;  
+            margin: 60px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 5px;
+            font-size: larger;
+        }
+
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1>Advice Generator</h1>
+        <h5>Advice #<span></span></h5>
+        <h2 class="advice"></h2>
+
+        <button>Generate</button>
+    </section>
+
+    <script>
+        let sect = document.querySelector('section');
+        let adviceNum = document.querySelector('span');
+        let advice = document.querySelector('.advice');
+        let btn = document.querySelector('button');
+
+        let qoutes = 'https://api.adviceslip.com/advice';
+
+       function fetchQoutes() {
+        advice.innerHTML = 'Loading..';
+        fetch(qoutes)
+        .then(res =>  res.json())
+        .then(data => {
+            let {id, advice} = data.slip
+            adviceNum.innerHTML = id;
+            advice.innerHTML = advice;
+        })
+        .catch(error => {
+            advice.innerHTML = error;
+        })
+        
+       };
+
+       btn.addEventListener('click', fetchQoutes);
+
+
+
+       
+
+
+
+
+
+
+
+    </script>
+   
+    
+</body>
+</html>

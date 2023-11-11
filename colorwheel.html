@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 100px auto;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        }
+        input {
+            height: 30px;
+            /* width: 200px; */
+            border: 2px solid black;
+            margin-bottom: 20px;
+            font-size: x-large;
+            outline: none;
+        }
+        button {
+            font-size: x-large;
+            font-weight: bold;
+            border: 2px solid black;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;   
+        }
+    </style>
+</head>
+<body>
+       <section>
+            <h1 class="topic">Colour Wheel</h1>
+            <form action="">
+                <input type="text" placeholder="Write Color name..">
+            </form>
+
+            <div>
+                <button>Change color</button>
+            </div>
+       </section>
+
+    <script>
+        let sect = document.querySelector('section');
+        let topic = document.querySelector('.topic');
+        let input = document.querySelector('input');
+        let btnDiv = document.querySelector('div');
+        let btn = document.querySelectorAll('button');
+        let currentColorIs = document.createElement('h1');
+        let resetBtn = document.createElement('button'); 
+        resetBtn.textContent = 'Reset';
+
+
+            btn[0].addEventListener('click', ()=> {
+                document.body.setAttribute('style', `background-color:  ${input.value}`);
+
+                
+
+                currentColorIs.textContent = `📣 current color is: "${input.value}"💨`;
+                currentColorIs.style.textDecoration = 'underline';
+                sect.insertBefore(currentColorIs, sect.lastElementChild)
+                input.value = '';
+
+                if (input.value === 'black') {
+                currentColorIs.style.color = 'white';
+                topic.style.color = 'white';
+                } else if (input.value != 'black') {
+                    currentColorIs.style.color = 'black';
+                    topic.style.color = '';
+                }
+                
+                btnDiv.appendChild(resetBtn);
+
+                resetBtn.addEventListener('click', ()=> {
+                document.body.setAttribute('style', `background-color: ''`);
+                sect.removeChild(currentColorIs);
+
+                });
+
+            });
+       
+    </script>
+    
+</body>
+</html>
+
+<!-- 
+    git add .
+    git commit -m "Initial commit" 
+-->

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="increment">+</button>
+    <h1></h1>
+    <button id="decrement">-</button>
+
+<script>
+  let h1 = document.querySelector('h1');
+  let incrementBtn = document.getElementById('increment');
+  let decrementBtn = document.getElementById('decrement');
+  let num = 0;
+  
+  h1.innerHTML = num;
+
+  incrementBtn.addEventListener('click', () => {
+    num++;
+    h1.innerHTML = num;
+    if (num >= 1) { 
+        document.body.style.backgroundColor = "green";
+    }
+    // currentNum(); //same as this☝☝☝ but works with the function below
+  });
+
+  decrementBtn.addEventListener('click', () => {
+    num--;
+    h1.innerHTML = num;
+    if (num >= 1) {
+        document.body.style.backgroundColor = "red";
+    }
+    // currentNum(); //same as this☝☝☝ but works with the function below
+  });
+
+//   function currentNum() {
+//     if (num >= 10) {
+//       document.body.style.backgroundColor = 'lightgreen';
+//       document.body.appendChild(decrementBtn);
+
+//     } else if (num <= 0) {
+//       document.body.style.backgroundColor = 'red'; 
+//       document.body.removeChild(decrementBtn);
+//     } 
+//    };
+
+  
+//   else if (num <= 0) {
+//     decrementBtn.setAttribute("style", "display: none")
+//   }
+</script>
+
+    
+</body>
+</html>
